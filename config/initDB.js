@@ -48,17 +48,6 @@ async function initDB() {
 
     const client = await pool.connect();
 
-
-    console.log('🔧 Eliminando tablas existentes...');
-    await client.query('BEGIN');
-    await client.query(`
-      DROP SCHEMA public CASCADE;
-      CREATE SCHEMA public;
-    `);
-    await client.query('COMMIT');
-    console.log('✅ Tablas eliminadas y esquema reiniciado.');
-
-
     console.log('🔧 Creando tablas nuevas...');
     await client.query('BEGIN');
     await client.query(`
