@@ -14,7 +14,8 @@ console.log('Configuraciones de Swagger cargadas correctamente.');
 
 // Middlewares
 console.log('Configurando middlewares...');
-app.use(cors({ origin: 'http://localhost:3000' }));
+app.use(cors({origin: ['http://localhost:3000', 'https://frontend-dun-five-95.vercel.app']}));
+
 app.use(express.json());
 console.log('Middlewares configurados.');
 
