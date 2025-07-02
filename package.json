@@ -22,13 +22,19 @@
     ],
     "forceExit": true,
     "detectOpenHandles": true,
-    "setupFilesAfterEnv": ["<rootDir>/jest.setup.js"],
+    "setupFilesAfterEnv": [
+      "<rootDir>/jest.setup.js"
+    ],
     "testTimeout": 30000,
     "verbose": false,
     "silent": true,
     "collectCoverage": false,
     "coverageDirectory": "coverage",
-    "coverageReporters": ["text", "lcov", "html"],
+    "coverageReporters": [
+      "text",
+      "lcov",
+      "html"
+    ],
     "collectCoverageFrom": [
       "routes/**/*.js",
       "auth/**/*.js",
@@ -48,7 +54,7 @@
     "express": "^5.1.0",
     "jsonwebtoken": "^9.0.2",
     "multer": "^2.0.1",
-    "pg": "^8.16.0",
+    "pg": "^8.16.3",
     "sequelize": "^6.37.7",
     "transbank-sdk": "^6.0.0"
   },

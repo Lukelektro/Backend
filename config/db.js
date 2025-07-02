@@ -14,8 +14,8 @@ const pool = new Pool({
   port: process.env.DB_PORT,
   user: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
-  connectionString: process.env.DATABASE_URL,
-  database: process.env.DB_NAME
+  database: process.env.DB_NAME,
+  ssl: process.env.NODE_ENV === 'production' ? { rejectUnauthorized: false } : false
 });
 
 // Solo conectar y mostrar logs si no estamos en modo test
