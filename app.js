@@ -18,7 +18,23 @@ if (!isTestMode) console.log('Configuraciones de Swagger cargadas correctamente.
 
 // Middlewares
 if (!isTestMode) console.log('Configurando middlewares...');
-app.use(cors({ origin: 'http://localhost:3000' }));
+// CORS configurado correctamente para local y producción
+const allowedOrigins = [
+  'http://localhost:3000',
+  'https://frontend-d6bb3n9tk-lukelektros-projects.vercel.app' // NO CAMBIAR, SOLO SI SE ACTUALIZA EL DOMINIO
+];
+
+app.use(cors({
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      console.log(`❌ CORS bloqueado para origen: ${origin}`);
+      callback(new Error('No autorizado por política CORS'));
+    }
+  },
+  credentials: true
+}));
 app.use(express.json());
 if (!isTestMode) console.log('Middlewares configurados.');
 
